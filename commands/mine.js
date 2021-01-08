@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
                 data.gold+=Math.floor(functions.range(8,10)*0.4*data.minetime*(data.fortune+1)/60000)
                 data.redstone+=Math.floor(functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)
                 data.lapis+=Math.floor(functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)
-                data.diam+=Math.floor(Math.floor(functions.range(0,10+(minetime/2400000))*0.3)*data.minetime*(data.fortune+1)/60000)
+                data.diam+=Math.floor(Math.floor(functions.range(0,10+(data.minetime/2400000))*0.3)*data.minetime*(data.fortune+1)/60000)
                 data.minetime=time;
                 data.mining = Date.now();
                 data.save().catch(err => console.log(err))
