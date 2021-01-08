@@ -60,15 +60,15 @@ module.exports.run = async (bot, message, args) => {
             return message.reply(`Your mining session is still in progress for ${Math.round((data.minetime - (Date.now() -data.mining))/60000)} minutes`);
             } else {
                 var eff=data.eff;
-                data.stone+=Math.floor((functions.range(30,50)*3.8*data.minetime/functions.range(1,3)/60000)*(eff+1)/3)
-                data.gravel+=Math.floor((functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)*(eff+1)/3)
-                data.dirt+=Math.floor((functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)*(eff+1)/3)
-                data.coal+=Math.floor((functions.range(8,12)*0.8*data.minetime*(data.fortune+1)/60000)*(eff+1)/3)
-                data.iron+=Math.floor((functions.range(8,12)*0.6*data.minetime)*(eff+1)/3)
-                data.gold+=Math.floor((functions.range(8,10)*0.4*data.minetime)*(eff+1)/3)
-                data.redstone+=Math.floor((functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)*(eff+1)/3)
-                data.lapis+=Math.floor((functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)*(eff+1)/3)
-                data.diam+=Math.floor(Math.floor((functions.range(0,10+Math.floor(data.minetime/2400000))*0.2)*data.minetime*(data.fortune+1)/60000)*(eff+1)/3)
+                data.stone+=Math.abs(Math.floor((functions.range(30,50)*3.8*data.minetime/functions.range(1,3)/60000)*(eff+1)/3))
+                data.gravel+=Math.abs(Math.floor((functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)*(eff+1)/3))
+                data.dirt+=Math.abs(Math.floor((functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)*(eff+1)/3))
+                data.coal+=Math.abs(Math.floor((functions.range(8,12)*0.8*data.minetime*(data.fortune+1)/60000)*(eff+1)/3))
+                data.iron+=Math.abs(Math.floor((functions.range(8,12)*0.6*data.minetime)*(eff+1)/3))
+                data.gold+=Math.abs(Math.floor((functions.range(8,10)*0.4*data.minetime)*(eff+1)/3))
+                data.redstone+=Math.abs(Math.floor((functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)*(eff+1)/3))
+                data.lapis+=Math.abs(Math.floor((functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)*(eff+1)/3))
+                data.diam+=Math.abs(Math.floor(Math.floor((functions.range(0,10+Math.floor(data.minetime/2400000))*0.2)*data.minetime*(data.fortune+1)/60000)*(eff+1)/3))
                 data.minetime=time;
                 data.mining = Date.now();
                 data.save().catch(err => console.log(err))
