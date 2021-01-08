@@ -52,6 +52,9 @@ Data.findOne({
         newData.save().catch(err => console.log(err))
         return message.reply(`You dont have any items to sell!`)
     } else {
+        if(data.minetime - (Date.now() -data.mining) > 0){
+            return message.reply(`Your mining session is still in progress for ${Math.round((data.minetime - (Date.now() -data.mining))/60000)} minutes`);
+        }
         if(!args[0])
         return message.reply(`Please enter an item name!`)
         if(args[0]=="stone")
