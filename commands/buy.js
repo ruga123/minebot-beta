@@ -1,6 +1,7 @@
 const color = require("../colors.json");
 const functions = require("../functions");
 const Discord = require("discord.js")
+const ms = require('parse-ms');
 const mongoose = require('mongoose')
 const mongopass = process.env.mongoPass
 
@@ -62,6 +63,9 @@ Data.findOne({
         newData.save().catch(err => console.log(err))
         return message.reply(`You dont have any money!`)
     } else {
+        if(data.minetime - (Date.now() -data.mining) > 0){
+            return message.reply(`Your mining session is still in progress for ${Math.round((data.minetime - (Date.now() -data.mining))/60000)} minutes`);
+        }
         if(args[0]=="fortune"||args[0]=="fort")
         {
             if(data.fortune==3) return message.reply(`The max level of fortune is 3`)
