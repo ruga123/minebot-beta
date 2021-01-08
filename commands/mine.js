@@ -40,7 +40,18 @@ module.exports.run = async (bot, message, args) => {
                 ems:0,
                 mining:Date.now(),
                 minetime:time,
-                fortune:0
+                fortune:0,
+                eff:1,
+                mod:0,
+                mod1:0,
+                mod2:0,
+                mod3:0,
+                mod4:0,
+                mod5:0,
+                mod6:0,
+                mod7:0,
+                mod8:0,
+                mod9:0
             })
             newData.save().catch(err => console.log(err))
            return message.reply(`Your mining session is now in progress for ${Math.round(time/60000)} minutes`);
@@ -48,15 +59,15 @@ module.exports.run = async (bot, message, args) => {
             if(data.minetime - (Date.now() -data.mining) > 0){
             return message.reply(`Your mining session is still in progress for ${Math.round((data.minetime - (Date.now() -data.mining))/60000)} minutes`);
             } else {
-                data.stone+=Math.floor(functions.range(30,50)*3.8*data.minetime/functions.range(1,3)/60000)
-                data.gravel+=Math.floor(functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)
-                data.dirt+=Math.floor(functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)
-                data.coal+=Math.floor(functions.range(8,12)*0.8*data.minetime*(data.fortune+1)/60000)
-                data.iron+=Math.floor(functions.range(8,12)*0.6*data.minetime*(data.fortune+1)/60000)
-                data.gold+=Math.floor(functions.range(8,10)*0.4*data.minetime*(data.fortune+1)/60000)
-                data.redstone+=Math.floor(functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)
-                data.lapis+=Math.floor(functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)
-                data.diam+=Math.floor(Math.floor(functions.range(0,10+Math.floor(data.minetime/2400000))*0.3)*data.minetime*(data.fortune+1)/60000)
+                data.stone+=Math.floor((functions.range(30,50)*3.8*data.minetime/functions.range(1,3)/60000)*(eff+1)/2)
+                data.gravel+=Math.floor((functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)*(eff+1)/2)
+                data.dirt+=Math.floor((functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)*(eff+1)/2)
+                data.coal+=Math.floor((functions.range(8,12)*0.8*data.minetime*(data.fortune+1)/60000)*(eff+1)/2)
+                data.iron+=Math.floor((functions.range(8,12)*0.6*data.minetime)*(eff+1)/2)
+                data.gold+=Math.floor((functions.range(8,10)*0.4*data.minetime)*(eff+1)/2)
+                data.redstone+=Math.floor((functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)*(eff+1)/2)
+                data.lapis+=Math.floor((functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)*(eff+1)/2)
+                data.diam+=Math.floor(Math.floor((functions.range(0,10+Math.floor(data.minetime/2400000))*0.2)*data.minetime*(data.fortune+1)/60000)*(eff+1)/2)
                 data.minetime=time;
                 data.mining = Date.now();
                 data.save().catch(err => console.log(err))

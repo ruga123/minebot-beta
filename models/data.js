@@ -19,6 +19,17 @@ ems:Number,
 mining:Number,
 minetime:Number,
 fortune:Number,
+eff:Number,
+mod:Number,
+mod1:Number,
+mod2:Number,
+mod3:Number,
+mod4:Number,
+mod5:Number,
+mod6:Number,
+mod7:Number,
+mod8:Number,
+mod9:Number,
 })
 
 module.exports = mongoose.model("Data",dataSchema);

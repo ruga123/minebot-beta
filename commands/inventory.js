@@ -41,7 +41,18 @@ Data.findOne({
             ems:0,
             mining:0,
             minetime:0,
-            fortune:0
+            fortune:0,
+            eff:1,
+            mod:0,
+            mod1:0,
+            mod2:0,
+            mod3:0,
+            mod4:0,
+            mod5:0,
+            mod6:0,
+            mod7:0,
+            mod8:0,
+            mod9:0
         })
         newData.save().catch(err => console.log(err))
         embed.setTitle(`${bot.users.cache.get(user.id).username}'s Inventory`)

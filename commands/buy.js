@@ -17,7 +17,7 @@ const embed = new Discord.MessageEmbed
  if(!args[0]) {
 embed.setColor(color.gold)
 embed.setTitle("Shop")
-embed.setDescription(`Fortune 25 emeralds per level`)
+embed.setDescription(`Fortune 25 emeralds per level\nEfficiency 20 emeralds per level`)
 return message.channel.send(embed)
 
  }
@@ -46,7 +46,18 @@ Data.findOne({
             ems:0,
             mining:0,
             minetime:0,
-            fortune:0
+            fortune:0,
+            eff:1,
+            mod:0,
+            mod1:0,
+            mod2:0,
+            mod3:0,
+            mod4:0,
+            mod5:0,
+            mod6:0,
+            mod7:0,
+            mod8:0,
+            mod9:0
         })
         newData.save().catch(err => console.log(err))
         return message.reply(`You dont have any money!`)
@@ -58,7 +69,16 @@ Data.findOne({
             data.ems-=args[1]*25
             data.fortune+=1
             data.save().catch(err => console.log(err))
-            return message.reply(`Succesfully bought ${args[1]} Fortune Upgrades!`)
+            return message.reply(`Succesfully bought a Fortune Upgrade!`)
+        } else
+        if(args[0]=="eff"||args[0]=="efficiency")
+        {
+            if(data.fortune==6) return message.reply(`The max level of efficiency is 5`)
+            if(args[1]*20>data.ems) return message.reply(`You dont have enough emeralds!`)
+            data.ems-=args[1]*20
+            data.eff+=1
+            data.save().catch(err => console.log(err))
+            return message.reply(`Succesfully bought a Efficiency Upgrade!`)
         } else
         {
             return message.reply("That item doesnt exist!")
