@@ -59,6 +59,7 @@ module.exports.run = async (bot, message, args) => {
             if(data.minetime - (Date.now() -data.mining) > 0){
             return message.reply(`Your mining session is still in progress for ${Math.round((data.minetime - (Date.now() -data.mining))/60000)} minutes`);
             } else {
+                var eff=data.eff;
                 data.stone+=Math.floor((functions.range(30,50)*3.8*data.minetime/functions.range(1,3)/60000)*(eff+1)/2)
                 data.gravel+=Math.floor((functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)*(eff+1)/2)
                 data.dirt+=Math.floor((functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)*(eff+1)/2)
