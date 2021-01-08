@@ -64,11 +64,11 @@ module.exports.run = async (bot, message, args) => {
                 data.gravel+=Math.abs(Math.floor((functions.range(7,15)*0.8*data.minetime/functions.range(1,2)/60000)*(eff+1)/3))
                 data.dirt+=Math.abs(Math.floor((functions.range(7,12)*0.6*data.minetime/functions.range(1,2)/60000)*(eff+1)/3))
                 data.coal+=Math.abs(Math.floor((functions.range(8,12)*0.8*data.minetime*(data.fortune+1)/60000)*(eff+1)/3))
-                data.iron+=Math.abs(Math.floor((functions.range(8,12)*0.3*data.minetime)*(eff+1)/3))
-                data.gold+=Math.abs(Math.floor((functions.range(8,10)*0.2*data.minetime)*(eff+1)/3))
+                data.iron+=Math.abs(Math.floor((functions.range(8,12)*0.6*data.minetime)/60000*(eff+1)/3))
+                data.gold+=Math.abs(Math.floor((functions.range(8,10)*0.4*data.minetime)/60000*(eff+1)/3))
                 data.redstone+=Math.abs(Math.floor((functions.range(6,12)*0.5*data.minetime*(data.fortune+1)*functions.range(4,5)/60000)*(eff+1)/3))
                 data.lapis+=Math.abs(Math.floor((functions.range(3,8)*0.3*data.minetime*(data.fortune+1)*functions.range(4,8)/60000)*(eff+1)/3))
-                data.diam+=Math.abs(Math.floor(Math.floor((functions.range(0,10+Math.floor(data.minetime/2400000))*0.2)*data.minetime*(data.fortune+1)/60000)*(eff+1)/3))
+                data.diam+=Math.abs(Math.floor(Math.floor((functions.range(0,20+Math.floor(data.minetime/2400000))*0.1)*data.minetime*(data.fortune+1)/60000)*(eff+1)/3))
                 data.minetime=time;
                 data.mining = Date.now();
                 data.save().catch(err => console.log(err))
