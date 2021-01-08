@@ -42,7 +42,7 @@ Data.findOne({
             mining:0,
             minetime:0,
             fortune:0,
-            eff:1,
+            eff:2,
             mod:0,
             mod1:0,
             mod2:0,

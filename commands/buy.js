@@ -47,7 +47,7 @@ Data.findOne({
             mining:0,
             minetime:0,
             fortune:0,
-            eff:1,
+            eff:2,
             mod:0,
             mod1:0,
             mod2:0,
@@ -65,17 +65,17 @@ Data.findOne({
         if(args[0]=="fortune"||args[0]=="fort")
         {
             if(data.fortune==3) return message.reply(`The max level of fortune is 3`)
-            if(args[1]*25>data.ems) return message.reply(`You dont have enough emeralds!`)
-            data.ems-=args[1]*25
+            if(25>data.ems) return message.reply(`You dont have enough emeralds!`)
+            data.ems-=25
             data.fortune+=1
             data.save().catch(err => console.log(err))
             return message.reply(`Succesfully bought a Fortune Upgrade!`)
         } else
         if(args[0]=="eff"||args[0]=="efficiency")
         {
-            if(data.fortune==6) return message.reply(`The max level of efficiency is 5`)
-            if(args[1]*20>data.ems) return message.reply(`You dont have enough emeralds!`)
-            data.ems-=args[1]*20
+            if(data.eff==7) return message.reply(`The max level of efficiency is 5`)
+            if(20>data.ems) return message.reply(`You dont have enough emeralds!`)
+            data.ems-=20
             data.eff+=1
             data.save().catch(err => console.log(err))
             return message.reply(`Succesfully bought a Efficiency Upgrade!`)
