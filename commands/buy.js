@@ -83,13 +83,7 @@ Data.findOne({
             data.eff+=1
             data.save().catch(err => console.log(err))
             return message.reply(`Succesfully bought a Efficiency Upgrade!`)
-            
         } 
-        else if(args[0]=="create"||args[0]=="add")
-        {
-            if(message.author.hasPermission("ADMINISTRATOR"))
-            return message.reply("Test Succesful!")
-        }
         else
         {
             return message.reply("That item doesnt exist!")
