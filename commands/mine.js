@@ -56,7 +56,7 @@ module.exports.run = async (bot, message, args) => {
             newData.save().catch(err => console.log(err))
            return message.reply(`Your mining session is now in progress for ${Math.round(time/60000)} minutes`);
         } else {
-            if(data.mine==-1&&data.minetime==-1&&!args[0])
+            if(data.mine==-1&&data.minetime==-1)
                 {
                     data.minetime=time;
                     data.mining = Date.now();
