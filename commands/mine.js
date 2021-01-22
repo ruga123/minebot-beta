@@ -83,7 +83,7 @@ module.exports.run = async (bot, message, args) => {
                 {
                     data.minetime=time;
                     data.mining = Date.now();
-                    return message.reply(`You have claimed your mining results and started your mining session for ${time} minutes!`);
+                    return message.reply(`You have claimed your mining results and started your mining session for ${time/60000} minutes!`);
                 }
                 data.save().catch(err => console.log(err))
                 return message.reply(`You have claimed your mining results!`);
